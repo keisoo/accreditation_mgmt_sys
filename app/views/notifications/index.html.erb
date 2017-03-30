@@ -1,0 +1,31 @@
+<div class="row">
+  <%= link_to "Accept All", accept_all_path(documents: @notifications.map(&:document_id), notifications: @notifications.map()), class: "btn btn-primary", method: :post if @notifications.present? %> 
+  <% @notifications.each do |notif| %>
+    <% if not notif.is_accepted %>
+      <% if notif.document.line.number.parameter.area.user_id == current_user.id %>
+        <div class="col-xs-12">
+          <div class="alert alert-danger">
+            <p>
+              <strong>File Received</strong>
+            </p>
+            <p><%= notif.message %></p>
+            <p>
+              <%= link_to "Accept", accept_document_path(notif.document, notification: notif.id), class: "btn btn-danger", method: :post %>
+              <%= link_to "Reject", reject_document_path(notif.document, notification: notif.id), class: 'btn btn-link', method: :post %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-xs-12">
+        <div class="alert alert-info>">
+          <p>
+            <strong>notification title</strong>
+          </p>
+          <p><%= notif.message %></p>
+        </div>
+      </div>
+    <% end %>
+    
+  <% end %>
+</div>

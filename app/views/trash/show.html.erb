@@ -1,0 +1,38 @@
+<div class="row header-margin">
+  <div class="col-md-6 mini-header">
+    <h6>RECYCLE BIN</h6>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "EMPTY RECYCLE BIN", destroy_all_path, class: 'btn btn-danger pull-right' %>
+  </div>
+</div>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Date Deleted</th>
+      <th>Deleted by</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% if @documents.present? %>
+    <% @documents.each do |document| %>     
+    <tr>
+    <td><%= document.document_file_identifier %></td>
+    <td><%= number_to_human_size(File.size(document.document_file.current_path)) %></td>
+    <td><%= File.extname(document.document_file.current_path) %></td>
+    <td><%= document.deleted_at %></td>
+    <td><%= document.user.name %></td>
+    <td>
+      <%= link_to "Restore", post_restore_path(document.id),data: {:confirm => 'Restore this file?'}, class: 'btn btn-warning btn-xs',method: :post %>
+      <%= link_to "Delete", destroy_permanent_path(document.id), method: :post, data: {:confirm => 'Delete file permanently?'}, class: 'btn btn-danger btn-xs' %>
+    </td>
+  </tr>
+<% end %>
+<% end %>
+  </tbody>
+</table>

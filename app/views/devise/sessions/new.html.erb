@@ -1,0 +1,23 @@
+<div class="container login_form " >
+  <div class="form-header">
+    <%= image_tag 'TUP.png' %>
+  </div>
+    <div class=" login-form-body">
+      <%= render 'shared/alert_messages' %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= icon 'user'%>  
+          <%= f.text_field :username, autofocus: true, autocomplete: 'off', class: 'form-control ', placeholder: 'Username' %>
+        </div>
+
+        <div class="form-group">
+          <%= icon 'lock'%>  
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "SIGN IN", class: 'btn btn-danger' %>
+        </div>
+      <% end %>
+  </div>
+</div>

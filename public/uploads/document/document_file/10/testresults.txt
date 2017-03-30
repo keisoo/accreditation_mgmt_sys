@@ -1,0 +1,15 @@
+
+         Function                                                               Test Results
+
+Save,Update,Upload,Download and Star-a-file document/s
+
+Dynamic Search Engine
+
+Notification Dashboard
+
+Monitoring of activity logs
+
+Recycle bin and Automatic file sorting
+
+Module to generate reports
+

@@ -1,0 +1,478 @@
+/*
+ *= require jquery-ui
+ */
+
+@import "bootflat";
+@import "jquery.tokenize";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+.badge{
+  background-color: #900000;
+}
+.header-margin{
+  margin: 0px!important;
+}
+
+.modal-title{
+  text-align: center;
+}
+
+.nav-pills{
+  li{
+    a{
+      font-size: 11px;
+    }
+  }
+}
+
+label#label_select_area{
+  display: block;
+}
+
+.mini-header{
+  color: #999999;
+}
+
+.btn-xs{
+  margin-left: 5px;
+}
+
+//sidenav
+.btn-max-width {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 0px;
+  background-color: transparent;
+  color: #3BAFDA;
+  border-color: #fff;
+  text-align:left;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  :hover{
+    color: #fff;
+  }
+}
+
+.btn-primary.active{
+  background-color: #fff;
+  color: #800000!important;
+  border-color: transparent!important;
+  a{
+      color: #fff!important;
+  }
+}
+.btn-primary.active:hover{
+  border-color: transparent!important;
+  background-color: #fff;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  color: #800000!important;
+  a{
+    color: #fff!important;
+  }
+}
+
+.btn_upload{
+  background-color: transparent;
+  border-color: transparent!important;
+  color: #3BAFDA;
+  width: 100%;
+  border-radius: 0px;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  :hover{
+    background-color: #3BAFDA;
+    color: #fff;
+    border-color: #3BAFDA;
+  }
+}
+
+.side-bar {
+  overflow-y: auto;
+  margin-bottom: -5000px;
+  padding-bottom: 5000px;
+  padding-right: 0!important;
+  padding-top: 10px!important;
+  ul.navbar-right {
+    margin-right: 0px!important;
+  }
+  ul.nav-stacked{
+    li{
+      margin-top: 0px;
+    }
+    background-color: transparent!important;
+  }
+  ul li.area-list{
+    padding: 0px 5px!important;
+    margin-left: 15px!important;
+    a{
+      margin-left: 10px!important;
+      padding:10px!important;
+      border-radius: 0px;
+    }
+    :hover{
+      color: #800000!important;
+      background-color: white;
+      -webkit-transition-duration: 0.8s;
+      transition-duration: 0.8s;
+    }
+  }
+  ul li{
+    width: 90%;
+    border-color: transparent!important;
+    div ul li{
+      .active > a{
+        background-color: #fff!important;
+        color: #800000;
+        padding: 10px;
+      }
+      :hover{
+        background-color: #fff;
+      }
+    }
+    .dropdown-toggle{
+      margin-left: 10px;
+      padding: 10px!important;
+      width: 100%;
+    }
+    :hover{
+      color: #800000!important;
+      -webkit-transition-duration: 0.8s;
+      transition-duration: 0.8s;
+    }
+    a{
+      color: #fff ;
+      padding: 8px 20px 8px 20px!important;
+      margin: 0px 10px;
+      width: 100%;
+      border-color: transparent!important;
+
+      :hover{
+        color: #800000!important;
+        background-color: #fff;
+        -webkit-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+        cursor: pointer;
+      }
+    }
+    button{
+      border-color: transparent!important;
+      margin: 0px 10px;
+      text-align: left;
+      color: #fff!important;
+      padding: 8px 20px 8px 20px!important;
+      width: 100%!important;
+      background-color: transparent;
+      .btn:hover{
+        color: #DA4453!important;
+        background-color: #fff!important;
+        -webkit-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+      }
+    }
+    h6{
+      margin-left: 15px;
+      color: #999999!important;
+    }
+  }
+}
+.nav-pills > li.active > a{
+  background-color: #fff!important;
+        color: #800000;
+}
+.nav-stacked > li + li {
+  margin-top: 0px;
+}
+.btn-max-width:hover{
+  background-color: #fff!important;
+}
+button.side-title{
+  margin-left: 0px!important;
+  cursor: text;
+}
+
+//document
+
+.document_starred{
+  color: #F6BB42;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  background-color:transparent!important;
+  border-color: transparent!important;
+}
+.document_starred:hover{
+  color: #F6BB42;
+  
+}
+
+
+//tokenizer
+
+.tokenize-sample {
+  width: 100%;
+  min-height: 80px;
+}
+
+
+//devise
+.form-control:focus{
+  border-color: #DA4453;
+}
+
+.login_form {
+  margin-top: 100px;
+  max-width: 500px;
+}
+div.login-form-body{
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+}
+div.form-header{
+  text-align: center;
+  margin-bottom: 30px;
+  img{
+    width: 40%;
+    opacity: 0.8;
+  }
+}
+div.form-group{
+  input{
+    border-radius: 20px;
+    background: rgba(white, 0.2);
+    color: white;
+    border-color: transparent;
+    width: 70%;
+    padding: 20px 20px 20px 50px;
+    margin-left: 15%;
+    :focus{
+      border-color: transparent;
+    }
+  }
+  i{
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    float: left;
+    opacity: 0.5;
+    left: 19%;
+    margin-top: 5px;
+  }
+}
+div.actions{
+  input{
+    padding: 10px 10px;
+    border-radius: 20px;
+    width: 70%;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    border-color: transparent;
+  }
+  :hover{
+    background-color: #4CD964;
+    border-color: transparent;
+  }
+}
+
+
+//home
+
+.col-md-6{
+  padding: 0px!important;
+}
+
+ul.nav.nav-pills {
+  padding: 10px;
+}
+
+.body-content {
+  padding: 10px 20px 20px 0px;
+}
+
+.nav.nav-pills{
+  max-height: 300px;
+  overflow-y:scroll; 
+  width: 205px;
+}
+
+//search_bar
+
+.search-bar{
+  width: 400px;
+  .form-control{
+    background: rgba(white, 0.2); 
+    border-radius: 20px!important;
+    border-color: transparent;
+    padding: 10px 20px!important;
+    margin-left: 0px;
+    color: white;
+  }
+  input{
+    border-radius: 20px;
+    border-color: #a6a6a6;
+  }
+}
+
+.align-center{
+  margin-left: 33%;
+}
+
+/*toggle-personalfile*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 22px;
+  margin-bottom:  0px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 2px;
+  right: -3px;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*table*/
+.table-wrapper{
+  background: rgba(white, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  color: white
+}
+.table-hover > tbody > tr:hover {
+  background: rgba(white, 0.3);
+  color: #fff;
+}
+
+/*scrollbar*/
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background-color: #999999;
+}
+
+
+/*AREA PPP Page*/
+
+div.content-container{
+  background: rgba(white, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  h4.area-name{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  p.parameter-name{
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  p.sub-parameter{
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  li.parameter-content{
+    margin-left: 20px;
+  }
+
+}
+/**/
+
+div.indicator-container{
+  background: rgba(white, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  div{
+    h4{
+      text-align: center;
+      text-transform: uppercase;
+    }
+    h6{
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}
+
+footer {
+  background: rgba(black, 0.2);
+  margin-top: 5%;
+  p.footer-style{
+    margin-bottom: 0px!important;
+    color: #fff;
+    text-align: center;
+  }
+}

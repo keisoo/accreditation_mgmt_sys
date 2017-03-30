@@ -1,0 +1,11 @@
+<%= react_component(
+  "DocumentList", 
+  documents: @documents, 
+  area: @area.try(:id), 
+  area_column: (true if @area.nil?), 
+  area_name: @area.try(:name) ,
+  sent: @sent.present?,
+  current_user_area: current_user.role == 'admin' ? 'admin' : current_user.area.name,
+  trash: (true if @trash == true),
+  personal: @personal
+) %>

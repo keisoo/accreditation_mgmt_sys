@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accreditation</title>
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag    'application', media: 'all'  %>
+<%= javascript_include_tag 'application'  %>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body background="<%= asset_path('blur3.png') %>">
+<div class="row">
+  <div class="col-md-2 side-bar">
+    <ul class="nav navbar-nav navbar-right">
+      <li style="margin: 0px 0px 15px 15px;"><%= image_tag 'user.png',style: 'width: 100px; ' %></li>
+      <li>
+        <button class="side-title">
+          <strong>Welcome! &nbsp;</strong>
+          <%= current_user.name %>
+        </button>
+        
+      </li>
+      <% if current_user.role == 'admin' %>
+      <li><%= link_to "#{icon('lock',' Admin Panel', style: 'margin-right: 10px;')}".html_safe, admin_root_path %></li>
+      <% end %>
+      <li>
+        <%= link_to "#{icon('bell', 'Notifications', style: 'margin-right: 10px;')}<span class='badge pull-right'>#{@notif_counts != 0 ? @notif_counts : nil}</span>".html_safe ,notifications_path%></li>
+      <li><%= link_to "#{icon('sign-out','Sign Out', style: 'margin-right: 10px;')}".html_safe, destroy_user_session_path, method: :delete %></li>
+      
+      
+
+      <li><h6 class="mini-header">File Management</h6></li>
+      <li>
+        <button type="button" class="btn btn-max-width btn_upload" data-toggle="modal" data-target="#uploadModal"><%= icon 'upload'%>&nbsp;&nbsp;&nbsp;
+        Upload File</button>
+      </li>
+      <li><%= link_to "#{icon('folder','All Files', style: 'margin-right: 10px;')}".html_safe, all_files_path, class: "#{is_active?(all_files_path)} btn-max-width btn-primary btn" %></li>
+      <li>
+        <button type="button" class="btn btn-max-width" data-toggle="collapse" data-target="area_collapse_page_view" aria-controlls="area_collapse_page_view" id="btn_collapse2">
+        <%= icon 'file-text'%> &nbsp;&nbsp; 
+        Area PPP 
+        <%=icon 'caret-down', class:"pull-right" %>  
+        </button>
+        <div class="collapse" id="area_collapse_page_view">
+            <ul class="nav nav-pills nav-stacked ">
+            <% @areas.each do |area| %>
+              <li class="area-list <%= is_active?(page_view_path(area.id)) %>"><%= link_to area.name, page_view_path(area.id) %>
+              </li>
+            <% end %>
+            </ul>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="btn btn-max-width" data-toggle="collapse" data-target="indicators_collapse" aria-controlls="indicators_collapse" id="btn_collapse3">
+        <%= icon 'file-text'%> &nbsp;&nbsp; 
+        Area Indicators 
+        <%=icon 'caret-down', class:"pull-right" %>  
+        </button>
+        <div class="collapse" id="indicators_collapse">
+            <ul class="nav nav-pills nav-stacked ">
+            <% @areas.each do |area| %>
+              <li class="area-list <%= is_active?(page_view_path(area.id)) %>"><%= link_to area.name, grid_view_path(area.id) %>
+              </li>
+            <% end %>
+            </ul>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="btn btn-max-width" data-toggle="collapse" data-target="area_collapse" aria-controlls="area_collapse" id="btn_collapse">
+        <%= icon 'file-text'%> &nbsp;&nbsp; 
+        Area Files 
+        <%=icon 'caret-down', class:"pull-right" %>  
+        </button>
+        <div class="collapse" id="area_collapse">
+            <ul class="nav nav-pills nav-stacked ">
+            <% @areas.each do |area| %>
+              <li class="area-list <%= is_active?(area_path(area.id)) %>"><%= link_to area.name, area_path(area.id) %>
+              </li>
+            <% end %>
+            </ul>
+        </div>
+      </li>
+      
+      <li><%= link_to "#{icon('paper-plane', 'Sent', style: 'margin-right: 10px;')}".html_safe, sent_documents_path, class: "#{is_active?(sent_documents_path)} btn btn-primary btn-max-width" %></li>
+      <li><%= link_to "#{icon('trash','Recycle Bin', style: 'margin-right: 10px;')}".html_safe, get_trash_path, class: "#{is_active?(get_trash_path)} btn btn-primary btn-max-width" %></li>
+    </ul>
+  </div>
+ 
+
+  <div class="col-md-10 body-content">
+    <% if alert %>
+    <p class="alert alert-warning alert-dismissable alert_animate">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= alert %>
+    </p>
+  <% end %>
+    <% if notice %>
+    <p class="alert alert-info alert-dismissable alert_animate">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= notice %>
+    </p>
+  <% end %>
+    <%= yield %>
+  </div>
+</div>
+
+<%= react_component("UploadModal", areas: @react_areas, form_token: form_authenticity_token) %>
+
+<footer>
+  &nbsp;
+  <p class="footer-style">ACCREDITATION MANAGEMENT SYSTEM &copy;</p>
+  &nbsp;
+</footer>
+
+</body>
+</html>
